@@ -6,7 +6,7 @@ from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from selenium.webdriver.common.keys import Keys
 import time
 
-#def switch_to_new_window(driver, windows_before):
+#def switchToWindowAfter(driver, windows_before):
     #new_window = [i for i in driver.window_handles if i not in windows_before][0]
     #new_window = [x for x in windows_after if x != windows_before][0]
     #return new_window[0]
@@ -34,7 +34,7 @@ def test_google():
         windows_before = driver.window_handles
         i.click()
         new_window = [i for i in driver.window_handles if i not in windows_before][0]
-        #newWindow = driver.switch_to.window(driver.window_handles[-1])
+        #newWindow = driver.switchToWindowAfter(driver.window_handles[-1])
         assert new_window, print("New windows are not opened")
         if new_window:
             driver.switch_to.window(new_window)
