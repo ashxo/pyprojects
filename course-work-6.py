@@ -5,6 +5,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from selenium.common.exceptions import NoSuchElementException
 import time
+import os
 
 def test_google():
 
@@ -35,6 +36,7 @@ def test_google():
     driver.find_element_by_xpath("//input[@name='dim_z']").send_keys("10")
     driver.find_element_by_xpath("//input[@name='date_valid_from']").send_keys("2015-05-09")
     driver.find_element_by_xpath("//input[@name='date_valid_to']").send_keys("2018-01-01")
+    driver.find_element_by_xpath("//input[@name='new_images[]']").send_keys(os.getcwd() + "\image.jpg")
     driver.find_element_by_xpath("//a[@href='#tab-information']").click()
     driver.find_element_by_xpath("//select[@name='manufacturer_id']").click()
     driver.find_element_by_xpath("//option[contains(.,'ACME Corp.')]").click()
