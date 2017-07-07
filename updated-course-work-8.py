@@ -4,6 +4,7 @@ from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.wait import WebDriverWait
 import time
 
 #def switchToWindowAfter(driver, windows_before):
@@ -13,7 +14,7 @@ import time
 
 def test_google():
     url = 'http://localhost/litecart/public_html/admin'
-    driver = webdriver.Firefox()
+    driver = webdriver.Chrome()
     driver.implicitly_wait(3)
 
     driver.get(url)
@@ -33,6 +34,8 @@ def test_google():
     for i in link:
         windows_before = driver.window_handles
         i.click()
+        #WebDriverWait(driver,5).until.ec.new_window_is_opened(driver.window_handles)
+        WebDriverWait(driver,5).until(ec.new_window_is_opened(windows_before))
         new_window = [i for i in driver.window_handles if i not in windows_before][0]
         #newWindow = driver.switchToWindowAfter(driver.window_handles[-1])
         assert new_window, print("New windows are not opened")
