@@ -30,7 +30,7 @@ def test_google():
         if size_presence:
             driver.find_element_by_css_selector('select[class ="form-control"] option[value="Small"]').click()
 
-        driver.find_element_by_css_selector('select[class ="form-control"] option[value="Small"]').click()
+        #driver.find_element_by_css_selector('select[class ="form-control"] option[value="Small"]').click()
         driver.find_element_by_xpath("//button[@name='add_cart_product']").click()
         driver.find_element_by_xpath("//a[@href='/litecart/public_html/']").click()
 
