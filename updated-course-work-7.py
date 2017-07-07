@@ -12,7 +12,11 @@ def test_google():
     goods = int(driver.find_element_by_xpath("//span[@class='quantity']").text)
 
     for i in range(3):
-        driver.find_element_by_xpath("//img[@alt='Yellow Duck']").click()
+        products_css = 'div[id="box-campaign-products"]'
+        first_product_css = products_css + ' div[class^="col-xs"]:nth-child(1)'
+        first_product = driver.find_element_by_css_selector(first_product_css)
+        first_product.click()
+        #driver.find_element_by_xpath("//img[@alt='Yellow Duck']").click()
 
         try:
             size_presence = wait.until(
